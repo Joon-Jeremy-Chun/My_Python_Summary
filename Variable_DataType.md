@@ -19,12 +19,34 @@ _C 나 JAVA는 변수 선언을 반드시 해야하는데 python이나 R은 자�
 + 공백을 포함할 수 없다. _왜냐하면 다음항이 명령어 일경우와 논리 충돌_
 + 밑줄 `_` 이외의 기호는 변수로 사용할 수 없다. _명령어중 논리 충돌_
 + 예약어(Reserved word)는 변수명으로 이용할 수 없다. _저장된 의미와 논리 충돌_
+
 ## 문자열(string) `str`
-문자열을 표시하기 위해서는 `큰따옴표(")`나 `작은따옴표(')`를 문자열 앞뒤에 쓴다
++ 문자열을 표시하기 위해서는 `큰따옴표(")`나 `작은따옴표(')`를 문자열 앞뒤에 쓴다.
 
 ```python
-string1 = "string text 1"
-string2 = 'string text 2'
-print(string1)
-print(string2)
+string1 = "Seeing is believing"
+string2 = 'We can see when we believe'
+print (string1)
+print (string2)
+```
++ 따옴표를 같이 집어 넣을려면 
+```python
+string3 = ""Seeing is believing""
+string4 = "'We can see when we believe'"
+print (string3)
+print (string4)
+```
++ 긴문장과 두개 이사의 따옴표를 넣으려면 앞뒤로 3겹의 따옴표들 `"",''`을 넣는다.
+```python
+string5 = """"Seeing is believing" but I think 'We can see when we believe'"""
+print (string5)
+```
+
+문자열 끼리면 더하기 곱하기도 가능
+```python
+a = 'I '
+b = 'love '
+c = 'you.'
+print (a+b+c)
+print (a+b*7+c)
 ```
