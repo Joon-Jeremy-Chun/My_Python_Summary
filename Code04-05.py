@@ -54,7 +54,17 @@ def delete_node(delData) :
             del(current)
             return
         
-        
+def find_node(findData) :
+    global memory, head, current, pre
+    current = head
+    if (current. data == findData) :
+        return current
+    while (current.link != None) :
+        current = current.link()
+        if (current. data == findData) :
+            return current
+    return Node() # 못찾는다면 빈 노드 반환
+    
     
 
 ## 전역
@@ -97,3 +107,8 @@ printNodes(head)
 
 delete_node('천준')
 printNodes(head)
+
+fNode = find_node('다현')
+print(fNode.data)
+Fdata = find_node('천준')
+print(Fdata.data)
