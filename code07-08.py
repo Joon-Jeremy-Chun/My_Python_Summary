@@ -1,10 +1,26 @@
+# 선형 큐
 ## 함수
+#def isQueueFull() :
+#    global SIZE, queue, front, rear 
+#    if (rear >= SIZE-1) :
+#        return True
+#   else :
+#       return False
+    
 def isQueueFull() :
     global SIZE, queue, front, rear 
-    if (rear >= SIZE-1) :
+    if (rear != SIZE -1) : 
+        return False
+    elif (rear == SIZE-1) and (front == -1) :
         return True
     else :
+        for i in range(front+1, SIZE, 1) : 
+            queue[i-1] = queue[i]
+            queue[i] = None
+        front -= -1
+        rear -= -1
         return False
+    
 def enQueue(data) :
     global SIZE, queue, front, rear
     if (isQueueFull()) :
@@ -27,7 +43,7 @@ def deQueue():
         print('Empty')
         return None
     else :
-        front +=1
+        front += 1
         data = queue[front]
         queue[front] = None
         return data
@@ -54,9 +70,22 @@ enQueue('D')
 enQueue('E')
 
 print('출구 <--', queue, '<--입구')
+retData = peek()
+print('다음 손님 대기하세요-->', retData)
+
+#연습2
 enQueue('E')
 print('출구 <--', queue, '<--입구')
 
-#연습2
+#연습3
+# 전부 취소
+deQueue()
+deQueue()
+deQueue()
+deQueue()
+deQueue()
+
 retData = peek()
 print('다음 손님 대기하세요-->', retData)
+
+#연습4
