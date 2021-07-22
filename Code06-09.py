@@ -33,6 +33,13 @@ def pop() :
     top -= 1
     return data
 
+def peek() :
+    global SIZE, stack, top
+    if(isStackEmpty()) :
+        print('empty')
+    else :
+        return stack[top]
+
 
 ## 전역
 SIZE = 5
@@ -41,6 +48,5 @@ top = -1
 
 ## 메인
 push('커피1');push('커피2')
-pop()
-pop()
-pop()
+retData = peek()
+print('다음에 나올것 -->', retData)
