@@ -135,17 +135,28 @@ for a in A :
 A = ['a1','a2']
 B = ['b1','b2']
 
-for c in range(len(A)) :
+for c in range(len(A)) : #len(A)대신 len(B)도 가능
     print (A[c],B[c])
 
 ```
 
-__참고__ `zip` 함수 : 
+__참고__ `zip` 함수 : 위와같이 리스트의 변수를 매치시킨다.
 ```python
-
+A = ['a1','a2']
+B = ['b1','b2']
+for A, B in zip(A,B) :
+    print (A,B)
 ```
+`zip`함수의 좋은점은 len(A)과 len(B) 작은것을 기준으로 매치되고 나머지는 자동으로 프린트되지 않는다.
 
 ## 3. `while` 문
 + `while`문은 `if`와 `for`의 조합이다.
 + `True`가 나오면 코드로 진행하고 그 답으로 ___다시___ 조건문으로 돌아와 질이 한다.
-+ `Fales` 가 나오면 조건물에서 나온다.
++ `Fales` 가 나오면 조건문에서 나온다.
+
+## 4. `while` 문의 구조
+```python
+while <조건문> :
+    <code block>
+```
+
