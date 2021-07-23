@@ -175,3 +175,48 @@ print (dict_data1)
 ## 3. 딕셔너리 메서드`(method)` 활용하기
 다음과 같은 딕셔너리 메서드가 존재한다.
 
+# 세트(Sets)
+
++ 세트를 만들때는 중괄호`{}`를 사용한다.
++ 중복은 한번만 출력된다.
+```python
+set1 = {1,2,3}
+set1a = {1,2,3,3,}
+print(set1)
+print(set1a)
+```
+
+## 1. 세트의 구현
++ 교집합 `(intersection)`
++ 합집합 `(union)`
++ 차집합 `(difference)`
+
+## 2. 세트 메서드`(method)`, `연산자` 활용하기
+| 메서드  | 설명     | method   | 연산자 |
+|-------  | ------  | -------  | ----- |
+| 교집합  | A  and  B|     A.Intersection(B)| A & B|
+| 합집합  | A  or  B|    A.union(B)| A \\| B |
+| 차집합  | A not  B|    A.difference(B)| A - B  |
+
+```python
+setA = {1,2,3,4,5}
+setB = {4,5,6,7,8}
+print (setA&setB)
+print (setA.intersection(setB))
+```
+# 데이터 타입 변형
+데이터 타입을 변형할 수 있다.
++ `list()`
++ `tuple()`
++ `set()`
+
+```python
+A = [1,2,3,4,5]
+B = tuple (A)
+print (B)
+C = set (B)
+print (C)
+D = list (A)
+print (D)
+```
+
