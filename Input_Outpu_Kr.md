@@ -84,3 +84,15 @@ print (say.format(letter_0,letter_1,letter_2))
 다음과 같은 출력 방식이 존재한다.
 
 ## 3. 키보드 입력
+키보드로 데이터를 입력할 때는 `input()` 함수를 사용한다.\
+예) 간단한 입력 출력
+```python
+yourName = input("what your name?")
+print ("Hi %s good to know you." %yourName)
+```
+예) 직사각형 넓이 계산기
+```python
+length = input ("length of square?")
+area = float (length)**2
+print ("The area of square: %f" %area)
+```
