@@ -155,8 +155,22 @@ for A, B in zip(A,B) :
 + `Fales` 가 나오면 조건문에서 나온다.
 
 ## 4. `while` 문의 구조
+다음과 같은 구조로 만든다.
 ```python
 while <조건문> :
     <code block>
 ```
 
+## 5. `break` and `continue`
+어떤 특정 조건을 만족하는 경우 멈추고 `<code block>` 에서 나와야 하는 경우 `break`를 사용한다. 혹은 다음 반복문을 시행해야할 경우 `continue`를 사용한다.
+
+예) 0보다크고 2보다 작은 수를 프린트해라.
+```python
+k = 0 # 초기화
+while True :
+    k = k + 1 # 새로운 k는 1씩 증가한다 
+    if (k > 2) : # k가 2보다 크면 
+        break # 멈춰라
+    else : # (if 가)그렇지 않을 경우 
+        print (k) # k의 값을 출력해라
+```
