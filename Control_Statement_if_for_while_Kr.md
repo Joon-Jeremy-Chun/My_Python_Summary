@@ -164,7 +164,7 @@ while <조건문> :
 ## 5. `break` and `continue`
 어떤 특정 조건을 만족하는 경우 멈추고 `<code block>` 에서 나와야 하는 경우 `break`를 사용한다. 혹은 다음 반복문을 시행해야할 경우 `continue`를 사용한다.
 
-예) 0보다크고 2보다 작은 수를 프린트해라.
+예) 0보다크고 2보다 작은 수를 프린트하라.
 ```python
 k = 0 # 초기화
 while True :
@@ -173,4 +173,57 @@ while True :
         break # 멈춰라
     else : # (if 가)그렇지 않을 경우 
         print (k) # k의 값을 출력해라
+```
+예) 2를 제외하고 0부터 4까지 프린트하라. `for`를 사용해서.
+```python
+for k in range(0,5,1) :
+    if (k == 2) :
+        continue
+    else:
+        print (k)
+```
+
+예) 2를 제외하고 0부터 4까지 프린트하라. `while`,`continue`,그리고 `brack`를 사용해서.
+```python
+k = -1 # k = k+1을 사용해서 시작을 -1로 설정
+while True :
+    k = k +1
+    if (k == 2) :
+        continue
+    elif (k < 5) :
+        print (k)
+    else :
+        break
+```
+## 6. 리스트 컴프리헨션 `(List) Comprehension`
+리스트, 세트, 딕셔너리 안에서 실행할 수 있는 한줄 `for`문.\
+기본구조는 다음과 같다.
+```python
+[<반복 실행문> for <반복 변수> in <반복 범위>]
+```
+
+예 6.1.1) 리스트의 항목의 수를 각각 루트를 씌워라.
+
+```python
+numbers = [1,2,3,4,5]
+root = []
+for i in numbers :
+    root.append(i**(1/2))
+print (root)
+```
+예 6.1.2) 위의 문제에 `comprehension`을 사용하라.
+
+```python
+numbers = [1,2,3,4,5]
+root = [i**(1/2) for i in numbers]
+print (root)
+```
+
+`if`문과 함께 사용 가능하다.
+
+예) 위의 문제에서 `comprehension`과 `if`를 사용하라.
+```python
+N = range(-100,100,1)
+root = [i**(1/2) for i in N if 0 < i < 6]
+print(root)
 ```
