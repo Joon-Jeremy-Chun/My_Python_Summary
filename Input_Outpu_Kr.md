@@ -83,6 +83,7 @@ print (say.format(letter_0,letter_1,letter_2))
 ### 출력 형식 `{ n : 형식 }`
 예) 소수점 2자리 10자리까지만 나타내어라.
 ```python
+다시확인!!
 A = 2**(1/2)
 
 print ("소숫점 2자리까지: {0 : 2d} n\ 소숫점 10자리까지: {1 :10d}".format(A,A))
@@ -112,30 +113,53 @@ print ("The area of square: %f" %area)
 4. close
 
 의 순서를 가진다.
-### 파일 열기
+### 1) 파일 열기
 + 파일에 `변수`를 지정해주고 `open` 함수로 파일명과 모드를 입력한다.
 ```python
 f = open('file_name','mode')
 f.read()
 f.close()
 ```
-### 모드의 종류
+### 2) 모드의 종류
 |mode|의미|
 |----|----|
 |r|일기 모드로 파일 열기. 모드를 지정하지 않으면 기본적으로 읽기모드로 지정된다.|
-|w|쓰기 모드로 파일 열기. 같은 이름의 파일이 있으면 기존내용 모두 삭제된|
+|w|쓰기 모드로 파일 열기. 같은 이름의 파일이 있으면 기존내용 모두 삭제된다,|
 |x|쓰기 모드로 파일 열기. 같은 이름의 파일이 있을 경우 오류가 발생함.|
 |a|추가 모드로 파일 열기.|
 |b|바이너리 파일 모드로 파일 열기. 실제 컴퓨터용어인 바이너리로(숫자) 파일을 연다.|
-|t|텍스트 파일 모드로 파일 열기. 지정하지 않으면 기본적으로 텍스트 모드로 지정됨.|
+|t|텍스트 파일 모드로 파일 열기. 지정하지 않으면 기본적으로 텍스트 모드로 지정된다.|
 
 `mode`는 혼합해서 사용가능. 예) `'wb'`혹은`'bw'`
 
-### 파일 쓰기
+### 3) 파일 쓰기
 + 파일 쓰기를 위한 코드 구조
 ```python
 f = opne('file_name', 'w')
 f.write(str)
 f.close()
 ```
+예) 구구단 2단 파일에 저장 확인하기
+```python
+# 파일 위치
+f = open ('two_times_table.txt', 'w')
+for num in range(1,10,1) :
+    data = (" 2 * {0} = {1} \n".format (num, num*2))
+    f.write(data)
+f.close()
 
+!cat tow_times_table.txt #확인 #Jupyternote commend
+```
+### 4) 파일 읽기
+한줄 파일 읽기: `.readline()`은 한줄씩 읽으면서 자동으로 다음 빈 줄을 출력한다.
+```python
+f = open ("two_times_table.txt")
+line1 = f.readline()
+line2 = f.readline()
+f.close()
+print (line1, end="") #end=""를 사용하여 줄바꿈 없이 프린트한다.
+print (line2, end="")
+```
+_그렇다면 공백이 있는 이유(?) 논리는_ `while`함수를 이용할때 유용하기 때문이다.
+
+```
