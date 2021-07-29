@@ -39,5 +39,5 @@ def students_info(name,phoneNum) :
     print ("전화 번호: {0}".format(phoneNum))
     print ("-------------")
 
-students_info("천준", "010")
+students_info("천준", "010-0000-0000") #정보표에 정보가 기록되어 출력된다.
 ```
