@@ -111,7 +111,8 @@ data_list = ['I', 'love', 'you', 'so', 'much']
 a = "" #a라는 변수에 빈공간(빈문자)로 지정 하여 문자 사이를 붙인다.
 a.join(data_list)
 ```
-out : 'Iloveyousomuch'\
+out : 'Iloveyousomuch'
+<br><br>
 띄어 쓰려면 
 ```python
 a = " " # 이렇게  정의 해야 한다.
@@ -125,7 +126,7 @@ data_list = ['I', 'love', 'you', 'so', 'much']
 out : 'I~^^~love~^^~you~^^~so~^^~much'
 #
 ## 4. 문자열 찾기
-+ `.find()` 메서드를 사용하여 문자열의 위치를 찾을 수 있다. _중복일 경우 앞의 처음만 값을 반환 한다._
++ `.find()` 메서드를 사용하여 문자열의 `위치`를 찾을 수 있다. _중복일 경우 앞의 처음만 값을 반환 한다._
 + 못 찾으면 `-1`을 반환한다.
 ```python
 str_ex = "Joon Jeremy Chun"
@@ -139,8 +140,8 @@ out1 : 문자열의 위치: 0 #중복일경우 처음만 찾는다.\
 out2 : 문자열의 위치: 5 #단어일경우 처음위치를 대표하여 출력한다.\
 out3 : 문자열의 위치: -1\
 out4 : 문자열의 위치: 12
-
-+ `.find()` 메서드에 `시작`과 `끝` 위치를 지정해 그 안에서만 찾을 수 잇다.
+<br><br>
++ `.find()` 메서드에 검색 범위를 정해 그 `시작`과 `끝` 안에서만 찾을 수 잇다.
 ```python
 str_ex = "Joon Jeremy Chun"
 
@@ -151,7 +152,7 @@ out1 : 문자열의 위치: 0\
 out2 : 문자열의 위치: -1
 #
 ## 5. 문자열 개수 찾기
-+ `.count()`메서드를 이용하여 데이터에 인자 문자열과 일치하는 문자열의 횟수를 가져온다.
++ `.count()`메서드를 이용하여 데이터에 인자 문자열과 일치하는 문자열의 횟수를 구한다.
 + 대소문자는 구분된다.
 + `.find()`메서드와 같이 검색의 `시작`과 `끝` 위치를 지정 할 수 있다.
 
@@ -164,8 +165,9 @@ print ("문자열 반복 횟수:", str_ex.count("J",5,30))
 ```
 out1 : 문자열 반복 횟수: 2\
 out2 : 문자열 반복 횟수: 1
+#
 ## 6. `.startswith()`와`.endswith()` 
-+ 함수 각각 지정된 문자열이 있는지 `True`와 `False`형식으로 반환한다.
++ 함수 각각 지정된 문자열의 유무를 `True`와 `False`형식으로 반환한다.
 + 범위를 지정 할 수 있다.
 
 구조와 예
@@ -202,6 +204,14 @@ print(str_x.replace("j", "J",1))
 out1 : Joon Jeremy chun\
 out2 : Joon jeremy chun
 + `replace()`메서드를 이용하여 띄여쓰기나 개행문자등 제거 할 수 있다.
+
+예)
+```python
+str_y = "Joon Jeremy Chun"
+
+print (str_y.replace(" ",""))
+```
+out : JoonJeremyChun
 #
 ## 8. 그외 중요 method
 
