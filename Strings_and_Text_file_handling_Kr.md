@@ -203,6 +203,7 @@ print(str_x.replace("j", "J",1))
 ```
 out1 : Joon Jeremy chun\
 out2 : Joon jeremy chun
+<br><br>
 + `replace()`메서드를 이용하여 띄여쓰기나 개행문자등 제거 할 수 있다.
 
 예)
@@ -219,3 +220,26 @@ out : JoonJeremyChun
 #
 
 # 텍스트 파일의 데이터를 읽고 처리하기
+## 1. 데이터 파일 준비 및 읽기
+1. 파일에서 테이터 읽어오기 `open()`
+2. 테이터 처리 `read()`, `write()`
+3. 데이터 닫기 `close()`
+<br><br>
++ Colab에서 파일 읽기고 형태 확인
+```python
+!cat [파일명]
+```
+
+```python
+!cat coffeeShopSales.txt
+
+file_name = coffeeShopSales.txt
+```
+```python
+f = open(file_name)
+header = f.readline()
+f.close()
+
+header
+```
+
