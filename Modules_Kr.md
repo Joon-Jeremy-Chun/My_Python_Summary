@@ -202,7 +202,7 @@ out : 2348 days, 0:00:00
 #
 ## 8. 달력 생성 밎 처리 모듈
 + 내장 모듈인 `calendar` 모듈을 이용한다.
-+ 모듈내에선 `Monday`가 `0`으로 첫째날이고 `Sunday`가 `6`으로 마지막 날을 갖는다.
++ 이모듈 내에선 `Monday`가 `0`으로 첫째날이고 `Sunday`가 `6`으로 마지막 날을 갖는다.
 ```python
 import calendar
 print(calendar.calendar(2021, m=6 )) #'m='은 열을 지정할때 사용
