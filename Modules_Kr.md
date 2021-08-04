@@ -143,13 +143,83 @@ date_death = datetime.date(1598, 12, 16)
 diff_days = date_death-date_brith
 
 print (diff_days)
+print (diff_days.days) # 날짜만 가져올때
 ```
-out : 19590 days, 0:00:00
+out1 : 19590 days, 0:00:00\
+out2 : 19590
 <br><br>
 데이터 타입 확인하기
 ```python
 type(date_brith)
 type(diff_days)
 ```
-out1 : datetime.date
+out1 : datetime.date\
 out2 : datetime.timedelta
+<br><br>
++ 오늘 날짜를 구하는 클래스: `.date`, 메서드: `.today()`
+```python
+import datetime
+
+print (datetime.date.today())
+```
+out : 2021-08-04 # 오늘 날짜
+<br><br>
++ 날짜와 시간을 모두 다룰 수 있는 `.datetime()` 클래스
+```python
+import datetime
+
+set_dt = datetime.datetime(2021,8,4,10,10,10)
+print (set_dt)
+```
+out : 2021-08-04 10:10:10
+<br><br>
++ 현재 날짜,시간을 구하는 클래스: `.datetime`, 메서드: `.now()`
+```python
+import datetime
+
+now = datetime.datetime.now()
+print (now)
+```
+out : 2021-08-04 02:37:01.185889
+<br><br>
+예) 위의 자료를 토대로 날짜와 시간을 다른양식으로 출력하라. `%Y %m %d` , `%H %M %S`
+```python
+print ("date : {%Y, %m, %d}".format(now))
+print ("time : {%H, %M, %S}".format(now))
+```
+
+<br><br>
+예) 특별한 부터 오늘까지의 날짜를 구하시오.
+```python
+# count the number of dates from your special day to today.
+import datetime
+
+today = datetime.date.today()
+special_day = datetime.date(2015, 3, 1)
+print (today - special_day )
+```
+out : 2348 days, 0:00:00
+#
+## 8. 달력 생성 밎 처리 모듈
++ 내장 모듈인 `calendar` 모듈을 이용한다.
++ 모듈내에선 `Monday`가 `0`으로 첫째날이고 `Sunday`가 `6`으로 마지막 날을 갖는다.
+```python
+import calendar
+print(calendar.calendar(2021, m=6 )) #'m='은 열을 지정할때 사용
+```
+out : #2021년도 달력을 매월 월요일-일요일 형식으로 반환한다.
+<br><br>
++ 특정 월만 출력 할 때는 `month()`함수를 이용한다.
+```python
+print(calendar.month(2021,8))
+```
+out : #2021.8월 달력
+<br><br>
++ 연도와 월을 지정해 그달 1일이 `시작하는 요일`과 그달의 `날짜 수`를 알고 싶을때 `monthorange()`함수를 이용
+```python
+calendar.monthrange(2021,2)
+```
+out : (6, 31) \
+\#6은 첫째날이 Sunday에 시작된다는 뜻이고, 31일은 8월은 31일 이라는 뜻이다.
+#
+# 패키지
