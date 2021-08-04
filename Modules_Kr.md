@@ -104,3 +104,52 @@ print (random.sample(fruits,2))
 out : ['배', '수박']#임의의 쌤플
 #
 ## 7. 날짜 및 시간 관련 처리 모듈
+실무에서 공통적으로 다루기 힘든 2가지; 날짜와 시간 형식, 한글형식이다.
+
+`datetime` 모듈에는 날짜를 표현하는 `date` 클래스와 시간을 표현하는 `time` 클래스가 있다.
+
++ 클래서에서 객체를 생성하기
+```python
+import datetime
+date_obj = datetime.date(year, month, day)
+time_obj = datetime.time(hour, minute, second)
+datetime_obj = datetime.datetime(year, month, day, hour, minute, second) #모듈.클래스명
+```
++ 클래스 매서드를 이용하기
+```python
+import datetime
+
+date_var = datetime.date.date_classemthod() # 모튤.클래스.클래스 메스드
+time_var = datetime.time.time_classmethod()
+datetime_var = datetime.datetime.datetime_classmethod()
+```
++ 오늘 날짜를 표현하라.
+```python
+import datetime
+
+set_day = datetime.date(2021, 8, 4)
+print (set_day)
+```
+out : 2021-08-04
+<br><br>
++ 빼기연산도 가능하다.
+
+예) 충무공 일생의 날을 구하시오. _1545년 4월28일 부터 1598년 12월 16일까지_ 
+```python
+import datetime
+
+date_brith = datetime.date(1545, 4, 28)
+date_death = datetime.date(1598, 12, 16)
+diff_days = date_death-date_brith
+
+print (diff_days)
+```
+out : 19590 days, 0:00:00
+<br><br>
+데이터 타입 확인하기
+```python
+type(date_brith)
+type(diff_days)
+```
+out1 : datetime.date
+out2 : datetime.timedelta
