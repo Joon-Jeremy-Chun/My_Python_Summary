@@ -108,7 +108,7 @@ out : ['배', '수박']#임의의 쌤플
 
 `datetime` 모듈에는 날짜를 표현하는 `date` 클래스와 시간을 표현하는 `time` 클래스가 있다.
 
-+ 클래서에서 객체를 생성하기
++ 클래스에서 객체를 생성하기
 ```python
 import datetime
 date_obj = datetime.date(year, month, day)
@@ -156,7 +156,7 @@ type(diff_days)
 out1 : datetime.date\
 out2 : datetime.timedelta
 <br><br>
-+ 오늘 날짜를 구하는 클래스: `.date`, 메서드: `.today()`
++ 오늘 날짜를 구하는 _클래스: `.date`, 메서드: `.today()`_
 ```python
 import datetime
 
@@ -164,7 +164,7 @@ print (datetime.date.today())
 ```
 out : 2021-08-04 # 오늘 날짜
 <br><br>
-+ 날짜와 시간을 모두 다룰 수 있는 `.datetime()` 클래스
++ 날짜와 시간을 모두 다룰 수 있는 _클래스: `.datetime()`_
 ```python
 import datetime
 
@@ -173,7 +173,7 @@ print (set_dt)
 ```
 out : 2021-08-04 10:10:10
 <br><br>
-+ 현재 날짜,시간을 구하는 클래스: `.datetime`, 메서드: `.now()`
++ 현재 날짜,시간을 구하는 _클래스: `.datetime`, 메서드: `.now()`_
 ```python
 import datetime
 
@@ -223,3 +223,8 @@ out : (6, 31) \
 \#6은 첫째날이 Sunday에 시작된다는 뜻이고, 31일은 8월은 31일 이라는 뜻이다.
 #
 # 패키지
+모듈의 집합
+
++ 패키지 구조
++ 패키지 생성
++ 패키지 호출
