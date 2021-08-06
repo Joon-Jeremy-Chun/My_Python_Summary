@@ -64,8 +64,8 @@ out3 : 177
 ```python
 class Bicycle():
  
-    def __init__(self, wheel_size, color)
-        self.wheel_size
+    def __init__(self, wheel_size, color) :
+        self.wheel_size = wheel_size
         self.color =color
 
     def move(self, speed) :
@@ -81,10 +81,10 @@ class Bicycle():
 위 부모 클래스를 바탕으로 자식 클래스를 생성 밎 상속.
 ```python
 class FoldingBicycle(Bicycle) :
-    def __init__(self, wheel_size, color, state):
-        Bicycle.__init__(self. wheel_size, color)
+    def __init__(self, wheel_size, color, state) :
+        Bicycle.__init__(self, wheel_size, color)
        #super().__init__(wheel_size, color) #부모 클래스 명대신 사용가능 (self)생략
-       self.state = state
+        self.state = state
 
     def fold(self) :
         self.state = 'folding'
@@ -92,8 +92,26 @@ class FoldingBicycle(Bicycle) :
 
     def unfold(self) :
         self.state = 'unfolding'
-        print ("자전거: 펴기, state ={0}".format(self.state))
+        print ("자전거: 펴기, state = {0}".format(self.state))
 ```
 새로운 클래스 변수 `state`추가 되었다.\
 새로운 클래스 메서드 `fold,unfold`가 추가 되었다.
+<br><br>
+이제 인스턴스`instance`를 하나 생상하고 `.method`를 호출.
+```python
+ex1 = FoldingBicycle(30,'black','unfolding')
 
+ex1.unfold()
+ex1.move(20)
+ex1.turn('우')
+ex1.move(5)
+ex1.stop()
+ex1.fold()
+```
+out :\
+자전거: 펴기, state = unfolding\
+자전거: 시속 20킬로미터로 전진\
+자전거 : 우회전\
+자전거: 시속 5킬로미터로 전진\
+자전거(30 & black): 정지 \
+자전거: 접기, state = folding
