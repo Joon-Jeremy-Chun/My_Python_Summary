@@ -3,7 +3,7 @@
 `pip install numpy`
 
 
-# 1. NumPy package
+#  NumPy package
 + 과학 연산할때 유용한 패키지다. _데이터 연산이 빠르다._
 + 데이터를 `arrary`(배열) 형태  로 처리한다.
 #
@@ -167,5 +167,3 @@ out2 : # [1,30)범위의 임의의 수
 ## 8. 행렬 연산
 
 #
-# 2. pandas package
-+ `series`(수열) 형태과 `dataframe` (데이터 테이블) 형태로 데이터를 연산 한다. 
