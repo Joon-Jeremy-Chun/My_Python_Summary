@@ -58,3 +58,42 @@ out3 : 177
 새로운 클래스를 선언할때 이미 존재하는 클래스와 유사점이 있다면, 클래스 상속을 통해 변수와 함수를 가져온다.
 + 부모 클래스 혹은 슈퍼 클래스라고 한다.
 + 자식 클래스 혹은 서브 클래스라고 한다.
+
+클래스 상속의 예\
+먼저 부모 클래스를 선언 (혹은 이미 존재하는)
+```python
+class Bicycle():
+ 
+    def __init__(self, wheel_size, color)
+        self.wheel_size
+        self.color =color
+
+    def move(self, speed) :
+        print ("자전거: 시속 {0}킬로미터로 전진".format(speed))
+
+    def turn(self, direction) :
+        print ("자전거 : {0}회전".format(direction))
+
+    def stop(self) :
+        print ("자전거({0} & {1}): 정지 ".format(self.wheel_size,self.color))
+
+```
+위 부모 클래스를 바탕으로 자식 클래스를 생성 밎 상속.
+```python
+class FoldingBicycle(Bicycle) :
+    def __init__(self, wheel_size, color, state):
+        Bicycle.__init__(self. wheel_size, color)
+       #super().__init__(wheel_size, color) #부모 클래스 명대신 사용가능 (self)생략
+       self.state = state
+
+    def fold(self) :
+        self.state = 'folding'
+        print ("자전거: 접기, state = {0}".format(self.state))
+
+    def unfold(self) :
+        self.state = 'unfolding'
+        print ("자전거: 펴기, state ={0}".format(self.state))
+```
+새로운 클래스 변수 `state`추가 되었다.\
+새로운 클래스 메서드 `fold,unfold`가 추가 되었다.
+
