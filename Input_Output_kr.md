@@ -96,7 +96,7 @@ print ("소숫점 2자리까지: {0 : 2d} n\ 소숫점 10자리까지: {1 :10d}"
 키보드로 데이터를 입력할 때는 `input()` 함수를 사용한다.\
 예) 간단한 입력 출력
 ```python
-yourName = input("what your name?")
+yourName = input("what is your name?")
 print ("Hi %s good to know you." %yourName)
 ```
 예) 직사각형 넓이 계산기
