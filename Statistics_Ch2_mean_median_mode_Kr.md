@@ -30,9 +30,9 @@ out : [42 69 56 41 57 48 65 49 65 58]
 <br><br>
 + 알파벳 순으로 인덱스를 부여하기
 ```python
-socres10_df = pd.DataFrame({'socre':scores10}, index = pd.Index(['A', 'B', 'C', 'D', 'E','F', 'G', 'H', 'I', 'J'], name = 'student'))
+scores10_df = pd.DataFrame({'socre':scores10}, index = pd.Index(['A', 'B', 'C', 'D', 'E','F', 'G', 'H', 'I', 'J'], name = 'student'))
 
-socres10_df
+scores10_df
 ```
 out : # (10,2)의 데이터 프레임
 <br><br>
@@ -45,7 +45,7 @@ np.mean(scores10)
 ```
 out : 55
 ```python
-socres10_df.mean()
+scores10_df.mean()
 ```
 out : socre    55.0\
 dtype: float64
@@ -57,14 +57,40 @@ dtype: float64
 + 데이터를 정렬한다.
 + 홀수일때 (n+1)/2 번째 데이터 값을 가져온다.
 + 짝수일때 두 중앙 값의 평균을 가져온다.
+<br>
+
 ```python
+#정렬
 sorted_scores10 = np.sort(scores10)
 print(sorted_scores10)
 
+#공식 적용
 n = len(sorted_scores10)
 if n % 2 == 0 :
-    m0 = sorted_scores10[n/2]
-
-
+    m0 = sorted_scores10[n//2 -1] #[]안에는 정수형만 들어간다 그래서 정수를 구하기 위해//사용 
+    m1 = sorted_scores10[n//2]
+    median = (m0+m1) / 2
+else :
+    median = sorted_scores10[n // 2 -1]
+print (median)
+```
+out : [41 42 48 49 56 57 58 65 65 69]\
+56.5
+<br>
++ `.median()` 메서드 사용하기
+```python
+np.median(scores10)
+#혹은
+scores10.median()
+```
+out :\
+socre    56.5\
+dtype: float64
 #
 ## 3. 최빈값 (mode)
+
+#
+## 4. 절사평균
++ outlire 때문에 평균에 영향을 미치는걸 보안 하기위해서 사용한다.
+
++ 10% 절사평균은 자료 양쪽의 10% 씩을 버리고 나머지 데이터 80%만 가지고 평균을 낸다.
