@@ -1,7 +1,8 @@
 # Web scraping 
 _Jupyternotebook base_
 #
-## `webbrowser` library 사용.
+## 검색
+ `webbrowser` library 사용하여
 특정 검색어 특정 사이트 검색밎 열기
 - 특정 `web` 열기
 ```python
@@ -34,8 +35,8 @@ for i in word_list :
 out : True\
 #리스트 단어가 검색된다.
 #
-## `urllib` library 사용.
-사용하여 데이터 다운 해보기
+## 데이터 다운
+ `urllib` library 사용하여 데이터 다운 해보기
 - 라이브러리 지정
 - img,html위치 지정
 - 저장명과 위치 지정\
@@ -49,8 +50,11 @@ html_url =  "http://google.com"
 save_path1 = "C:\\Myexam\\test1.jpg"
 save_path2 = "C:\\Myexam\\index.html"
 ```
-- 예외 처리 `try`를 사용하여
+<br><br>
++ 예외 처리 `try`를 사용하여 처리가 안될때 대비
+
 - `.urlretrieve( #url, #경로와 이름)` 사용해 다운 한다.
+
 ```py
 try:
  file1, header1 = req.urlretrieve(img_url, save_path1)
@@ -65,3 +69,58 @@ else:
 
 ```
 #
+## 웹 페이지의 html 소스 가지고 오기
+
+```py
+import requests
+
+r = requests.get("https://www.google.co.kr")
+r
+```
+out : <Response [200]> _잘 됬으면 나오는 output_
+
+- 일부분만 출력하기
+- 두가지 방법
+```py
+r.text[0:100]
+```
+```py
+import requests
+html = requests.get("https://www.google.co.kr").text
+html[0:100]
+```
+#
+## 데이터 찾고 추출하기
+`Beautiful Soup` library 사용하여 파싱하고 태그나 속성을 통해 원하는 데이터 추출하기
+
+- 테스트용 html
+- `BeautifulSoup` 사용하기
+```py
+from bs4 import BeautifulSoup
+
+#test code
+html = """<html><body><div><span>\
+<a href=http://www.naver.com>naver</a>\
+<a href=http://www.google.com>google</a>\
+<a href=http://www.daum.net>daum</a>\
+</span></div></body></html>"""
+
+#BeautifulSoup에 html소트 파싱
+soup = BeautifulSoup(html, 'lxml')
+soup
+```
+
++ `.prettify()` 함수를 사용해서프린트해본다.
+```py
+print(soup.prettify())
+```
+out : #정리되서 나옴
+<br><br>
+-해당 `'태그'`가 있는 _첫번째_ 요소를 찾는다.
+```py
+soup.find('a')
+```
+out : `<a href="http://www.naver.com">naver</a>`
+
+<br><br>
+- 
