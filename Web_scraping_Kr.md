@@ -194,3 +194,27 @@ out : # body 전체
 soup2.body.h1
 ```
 out : `<h1>책 정보</h1>`
+<br><br>
+
+- 코드의 `p태그` 요소 중 `id`가 `book_title`인 속성을 갖는 _첫 번째_ 요소만 반환
+- `find_all()`로 역시 모든 값을 리스트에 저장 찾을 수 있다.
+```py
+soup2.find('p',{"id":"book_title"})
+# p태그의 id key의 book_title이라는 벨류
+```
+out : `<p id="book_title">토지</p>`
+<br><br>
+practic) 책이름 / 저자 형식으로 나타내기
+```py
+book_titles = soup2.find_all('p',{'id':'book_title'})
+book_authors = soup2.find_all('p',{'id':'author'})
+
+for book_title, book_author in zip(book_titles, book_authors):
+    print(book_title.get_text() + ' / ' + book_author.get_text())
+```
+out :\
+토지 / 박경리\
+태백산맥 / 조정래\
+감옥으로부터의 사색 / 신영복
+# 
+## `CSS` 선택자`(selector)`를 이용
