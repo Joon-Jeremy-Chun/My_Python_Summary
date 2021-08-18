@@ -90,7 +90,7 @@ html = requests.get("https://www.google.co.kr").text
 html[0:100]
 ```
 #
-## 데이터 찾고 추출하기
+## 데이터 찾고 추출하기 ex1
 `Beautiful Soup` library 사용하여 파싱하고 태그나 속성을 통해 원하는 데이터 추출하기
 
 - 테스트용 html
@@ -105,7 +105,7 @@ html = """<html><body><div><span>\
 <a href=http://www.daum.net>daum</a>\
 </span></div></body></html>"""
 
-#BeautifulSoup에 html소트 파싱
+#BeautifulSoup에 html소스 파싱
 soup = BeautifulSoup(html, 'lxml')
 soup
 ```
@@ -116,11 +116,81 @@ print(soup.prettify())
 ```
 out : #정리되서 나옴
 <br><br>
--해당 `'태그'`가 있는 _첫번째_ 요소를 찾는다.
+- 해당 `'태그'`가 있는 _첫번째_ 요소를 찾는다.
 ```py
 soup.find('a')
 ```
 out : `<a href="http://www.naver.com">naver</a>`
 
+<br>
+
++ `get_text()`를 사용하여 안에 있는 텍스트만 불러오기
+```py
+soup.find('a').get_text()
+```
+out : 'naver'
 <br><br>
-- 
+- `find_all()`을 사용하여 모든 요소를 반환 하기
+- 리스트 형식으로 반환 된다.
+```
+soup.find_all('a')
+```
+out : [`<a href="http://www.naver.com">naver</a>,
+ <a href="http://www.google.com">google</a>,
+ <a href="http://www.daum.net">daum</a>`]
+ <br><br>
+ - `for`문을 이용하여 텍스트만 반환한다.
+ - `get_text()`는 리스트에 적용할 수 없음으로
+ ```py
+site_names = soup.find_all('a')
+for site_name in site_names :
+  print(site_name.get_text())
+```
+out : \
+naver\
+google\
+daum
+#
+## ## 데이터 찾고 추출하기 ex2
+```py
+from bs4 import BeautifulSoup
+
+#테스트용 html code
+
+html2 = """
+<html>
+ <head>
+  <title>작품과 작가 모음</title>
+ </head>
+ <body>
+  <h1>책 정보</h1>
+  <p id="book_title">토지</p>
+  <p id="author">박경리</p>
+  
+  <p id="book_title">태백산맥</p>
+  <p id="author">조정래</p>
+
+  <p id="book_title">감옥으로부터의 사색</p>
+  <p id="author">신영복</p>
+ </body>
+</html>
+"""
+
+soup2 = BeautifulSoup(html2, 'lxml')
+```
+
+- `title 태그` 요소 찾아오기
+```py
+soup2.title
+```
+out : `<title>작품과 작가 모음</title>`
+<br><br>
+- `body` 전체 혹은 body 안의 `특정 요소`를 가져올 수 있다.
+```py
+soup2.body
+```
+out : # body 전체
+```py
+soup2.body.h1
+```
+out : `<h1>책 정보</h1>`
