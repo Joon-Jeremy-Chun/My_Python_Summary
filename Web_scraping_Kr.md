@@ -228,4 +228,38 @@ out :\
 #
 ## 줄바꿈으로 가독성 높이기
 #
+## 실제 크롤링 예제
+_Aug/19/2021_
+- alexa.com에서 한국 사이트 순위 가져오기
+1. 사이트를 열어 분석한다.
+2. 원하는 데이터 위치 확인
 
+```py
+import requests
+from bs4 import BeautifulSoup
+
+#사이트
+url = "https://www.alexa.com.topsites/countries/KR"
+
+#데이터를 text형태로 가져와 lxml 정리처리
+html_website_ranking = requests.get(url).text
+soup_website_ranking = BeautifulSoup(html_website_ranking, 'lxml')
+
+
+#일단 분석해서 내가 원하는 위치가 어디인지 확인 한다.
+# p태그의 요소 안에 a 테그의 요소만 저장
+
+website_ranking = soup_website_ranking.select('p a')
+#a 는 하이퍼 링크를 걸어주는 테그
+
+# 텍스트만 저장
+website_ranking_address = [website_ranking_element.get_text() for website_ranking_element in website_ranking[1:]]
+```
++ 불러오기 10항
+```py
+print("[Top Sites in South Korea]")
+for k in range(10) :
+    print ('{0} - {1}'.format(k+1, website_ranking_addres[k]) )
+
+```
+out : #10 웹 순위 (Aug/19/2021기준)
