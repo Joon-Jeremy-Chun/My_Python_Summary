@@ -10,7 +10,7 @@
 ## 유트브 랭킹 데이터 (youtube-rank.com)
 ```py
 from selenium import webdriver
-from bs4 imoprt BeautifulSoup
+from bs4 import BeautifulSoup
 import time
 import pandas as pd
 ```
@@ -20,12 +20,13 @@ browser = webdriver.Chrome("C://Myexam//chromedriver//chromedriver.exe")
 url = "https://youtube-rank.com/board/bbs/board.php?bo_table=youtube"
 browser.get(url)
 ```
-+ 데이터 가져오기
++ 데이터 가져오기 & 정리
 ```py
 html = browser.page_source
 soup = BeautifulSoup(html, 'html.parser')
 ```
 + 원하는 데이터의 테그 추출하기
++ `tr`
 ```py
 channel_list = soup.select('tr')
 
@@ -35,9 +36,10 @@ print(len(channel_list), '\n')
 print(channel_list[0])
 ```
 out : 102\
-out : #첫번째 데이터\
+out : #첫번째 데이터
 + tr 태크 확인 
 + 처음 2행 제외하기
++ `form` `table` `tbady` `tr`
 ```py
 channel_list = soup.select('form  table  tbody  tr')
 #확인
@@ -49,7 +51,11 @@ out : 100
 channel_check = channel_list[0]
 print (channel_check)
 ```
-+ p테그에 category class 정보 추출
+#
+## 데이터 분류
++ 카테고리, 채널명, 구독자 수, view 수, 동영상 수 추출
+
+1. `p` 테그 안에 `class = category` 정보 추출
 ```py
 category = channel_check.select('p.category')[0].text.strip() 
 #.strip()을 하는 이유는 문자열 앞뒤의 공간과 개행문자을 삭제하려고
