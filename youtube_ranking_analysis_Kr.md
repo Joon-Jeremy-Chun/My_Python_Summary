@@ -14,13 +14,13 @@ from bs4 import BeautifulSoup
 import time
 import pandas as pd
 ```
-+ 웹 열기
++ 웹 열기(가져오기)
 ```py
 browser = webdriver.Chrome("C://Myexam//chromedriver//chromedriver.exe")
 url = "https://youtube-rank.com/board/bbs/board.php?bo_table=youtube"
 browser.get(url)
 ```
-+ 데이터 가져오기 & 정리
++ 데이터 저장 & 정리
 ```py
 html = browser.page_source
 soup = BeautifulSoup(html, 'html.parser')
@@ -38,12 +38,13 @@ print(channel_list[0])
 out : 102\
 out : #첫번째 데이터
 + tr 태크 확인 
-+ 처음 2행 제외하기
++ 처음 2행 제외하기 _처음 두개는 원하는 데이터가 아님으로 더 자세히 테그를 사용해 추출_
 + `form` `table` `tbady` `tr`
 ```py
 channel_list = soup.select('form  table  tbody  tr')
 #확인
-print(len(channel_list))
+print(len(channel_list), '\n')
+print(channel_list[0])
 ```
 out : 100
 + 데이터 구조 확인하기
@@ -56,8 +57,24 @@ print (channel_check)
 + 카테고리, 채널명, 구독자 수, view 수, 동영상 수 추출
 
 1. `p` 테그 안에 `class = category` 정보 추출
+2. 주의점 `.text` 함수는 리스트 전체에 개별적으로 적용할 수 없어 하나하나씩 해야한다.
 ```py
+channel_check = channel_list[0]
+#일단 첫번째 확인
 category = channel_check.select('p.category')[0].text.strip() 
 #.strip()을 하는 이유는 문자열 앞뒤의 공간과 개행문자을 삭제하려고
-print (category[0:5])
+print (category[0:])
+```
++ 위 process를 for문을 통해 연속으로 진행한다.
+```py
+for i in range(len(channel_list)) :
+    channel_check = channel_list[i]
+    category = channel_check.select('p.category')[0].text.strip() 
+    print (category)
+```
+약간더 축약
+```py
+for channel_singleD in channel_list :
+    category = channel_singleD.select('p.category')[0].text.strip() 
+    print (category)
 ```
