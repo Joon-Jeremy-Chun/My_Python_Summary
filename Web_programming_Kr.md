@@ -16,3 +16,16 @@
 <br><br>
 - (아나콘다 서버에서 나온뒤) python -m http.server 8888 (-m은 멀티 paramiter)
 - 그 뒤 브라우저에서 서버접속하면 서버의 파일 목록(?)을 열어준다.
+#
+## 시작
+- cgi-server 설치, 그안에 `script`코딩파일
+- code는 import cgi 서버
+- cgi_client (정보파일) 설치
+- 아나콘다 2개 실행 
+- 하나 웹 입장: 웹 (그 파일로 간 뒤) `python -m http.server 8888 --cgi` 로 서버실행
+1. 대기중으로 몃줄의 내용이 나온다.
+<br><br> 
+- 두번째 클라이언트 입장: 아나콘다로 이미 작정된 정보 cgi_client 입력; `python cgi_client.py`
+- 데이터 내용이 아래에 뜬다. 그이유는
+1. 서버쪽에서 데이터를 받음
+2. 그 데이터 내용을 print기능으로 클라언트에 보내준다.
