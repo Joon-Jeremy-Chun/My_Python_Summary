@@ -54,6 +54,7 @@ print (channel_check)
 ```
 #
 ## 데이터 분류
+### 1. 카테고리
 + 카테고리, 채널명, 구독자 수, view 수, 동영상 수 추출
 
 1. `p` 테그 안에 `class = category` 정보 추출
@@ -78,3 +79,7 @@ for channel_singleD in channel_list :
     category = channel_singleD.select('p.category')[0].text.strip() 
     print (category)
 ```
+### 2. 체널명
+```
+category = channel_check.select('a.category')[0].text.strip() 
+print (category[0:])

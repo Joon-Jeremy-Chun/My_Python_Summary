@@ -59,7 +59,7 @@ notepad settings.py
 ```
 python manage.py migrate
 ```
-- 위 명령어후 auth(author)등 권한생성
+- 위 명령어후 인증 사용자 계정 auth(author)등 권한생성 (table 생성)
 - db.sqlite3 자동으로 생성된다.
 - database에 무엇이 있는지 알려면 `sqlite3 db.sqlite3`
 <br><br>
@@ -84,4 +84,4 @@ python manage.py createsuperuser
 ```
 tree /F projectsite
 ```
-
+위 명령어를 시행하면 데이터베이스,셋팅,applications등 연결 구조를 볼 수 있다.
