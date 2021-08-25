@@ -105,3 +105,6 @@ tree /F projectsite
 - python manage.py migrations : 데이터베이스에 테이블 생성
 
 - 브라우져에 `http://127.0.0.1:8000/admin/` admin으로 들어가면 위에서 만든 아이디 정보와 현재 만든 questions 와 choice 부분이 만들어져있다.
+<br><br>
+## View 및 Template
+
