@@ -136,12 +136,42 @@ boolean 타입(True,False)
 1. URLconf (urls.py)\
  path('',view.index,name=index)\
 path('creatTodo/',views) 메모하기\
-path('doneTodo/',views)완료하기\
-
-
+path('doneTodo/',views) 완료하기
 2. view (views.py) 와 html)\
  `index()`함수와 `creatTodo()`, `doneTodo()`
 3. template(template/app/*.\
  `index.html` 필요\
  DB에 Data 메모넣기
  
+#
+##  MVT 코딩 순서대로 실행
+1. 프로젝트 뼈대
+2. 모델 코딩 (models.py, admin.py)
+3. URLconf (url.py)
+4. 템플릿 (templates/ 하위 *.html)
+5. View (views.py)
+
+## 1. 프로젝트 뼈대 만들기
+1. 폴더에 ToDoList 라는 프로젝트 생성 : `django-admin startproject ToDoList`
+2. my_to_do_app 이라는 애플리케이션 _프로젝트안에 생성_ : `python manage.py startapp my_to_do_app`
+3. 설정 파일을 확인 및 수정 : `notepad setting.py`
+- 수정할 내용은 `ALLOWED_HOSTS`, `INSTALLED_APPS`, `databases`, `TIME_ZONE` 4개
+- `INSTALLED_APPS`에 내가 추가한 `'my_to_do_app',`을 추가하며 콤마를 잊지말자.
+4. 데이터베이스에 기본 테이블 생성 : `python manage.py migrate` 실행하면 `db.sqlite3`가 생성된다.
+- `migrate`는 데이터베이스에 변경사항이 있을 때 반영해주는 명령. 커맨트창에 _Applying ~~~ ... ok 가 뜬다._
+5. 현재까지 작업을 _개발용 웹_ 서버로 확인 : `python manage.py runserver`로 서버를 실행하고 프라우져로 접속하여 로켓로고 확인하면 ok
+
+## 1.2 admin 등록하기 접속하기
+1. manage.py 가 있는 폴더위치에서 다음을 실행 : `python manage.py createsuperuser`
+2.순서에따라 작성후 /admin에 접속해본다.
+
+## 1.3 애플리케이션을 MVT 패턴 방식으로 개발할 수 있도록 골격 생성
+1. `C:\\MyTest>tree /F ToDoList` 
+
+## 2.  model 코딩
+모델 작업은 테이터베이스에 테이블을 생성하는 작업.\
+my_to_do_app에서 model 코딩 클레스 생성 :문자길이 버튼 등등
+
+1. 테이블을 정의 한다. : `notepad models.py`
+- 장고뼈대 만들때 이미 존재
+2. admin에 등록
