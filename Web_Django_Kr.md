@@ -108,3 +108,40 @@ tree /F projectsite
 <br><br>
 ## View 및 Template
 
+
+
+#
+
+노트
+# 장고 mini project ToDolist 만들기
+1. ToDoList 미니프로젝트 분석
+    1. 현황 분석
+    2. 테이터 분석(식별, 흐름)
+
+2. ToDoList 미니프로젝트 설계
+    1. Model
+    2. URLconf
+    3. Template
+    4. View
+#
+
+- ### Model(models.py): 테이블 구성
+1. 메모내용; (반드시 아래옵션은 아니여도된다.)\
+ varchar 타입으로 (가변적으로 사용)\
+ 길이 : 255
+2. 메모 완료여부\
+boolean 타입(True,False)
+<br><br>
+- ### URLconf
+1. URLconf (urls.py)\
+ path('',view.index,name=index)\
+path('creatTodo/',views) 메모하기\
+path('doneTodo/',views)완료하기\
+
+
+2. view (views.py) 와 html)\
+ `index()`함수와 `creatTodo()`, `doneTodo()`
+3. template(template/app/*.\
+ `index.html` 필요\
+ DB에 Data 메모넣기
+ 
