@@ -124,7 +124,7 @@ tree /F projectsite
     3. Template
     4. View
 #
-
+## 구상하기
 - ### Model(models.py): 테이블 구성
 1. 메모내용; (반드시 아래옵션은 아니여도된다.)\
  varchar 타입으로 (가변적으로 사용)\
@@ -150,7 +150,7 @@ path('doneTodo/',views) 완료하기
 3. URLconf (url.py)
 4. 템플릿 (templates/ 하위 *.html)
 5. View (views.py)
-
+#
 ## 1. 프로젝트 뼈대 만들기
 1. 폴더에 ToDoList 라는 프로젝트 생성 : `django-admin startproject ToDoList`
 2. my_to_do_app 이라는 애플리케이션 _프로젝트안에 생성_ : `python manage.py startapp my_to_do_app`
@@ -173,5 +173,21 @@ path('doneTodo/',views) 완료하기
 my_to_do_app에서 model 코딩 클레스 생성 :문자길이 버튼 등등
 
 1. 테이블을 정의 한다. : `notepad models.py`
-- 장고뼈대 만들때 이미 존재
+- (장고뼈대 만들때 이미 존재) 
+- 아래 내용을 코딩
+    1. class `Todo()` 생성 
+    2. content 는 255으로 설정 isDone 은 Boolean으로 완료 버튼사용
 2. admin에 등록
+- 위에 정의한 models.py 가 admin에 보이도록  admin.py에 등록
+```py
+from my_to_do_app.models import Todo
+```
+3. 데이터베이스에 변경이 필요한 사항을 추출함 : `python manage.py makemigrations`
+- ToDoList 폴더로 올라간후 실행(데이터 베이스 위치)
+- 위 명령에 의해 my_to_do_app/migrations 폴더와 하이 마이크레이션 파일들이 생김
+4. 데이터베이스에 변경사항을 반영함 : `python manage.py migrate`
+- 데이터 베이스에 테이블 생성
+- 데이터 베이스에가서 테이블 목록을 확인하면 `my_to_do_app_todo` 가 생김
+5. 현재까지 사항을 재발용 웹 서버로 실행 : `python manage.py runserver`
+- Todos 목록이 서버에 생김
+## 3. URLconf 코딩
