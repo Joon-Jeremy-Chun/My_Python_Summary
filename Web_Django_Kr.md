@@ -112,7 +112,7 @@ tree /F projectsite
 
 #
 
-노트
+___노트 mini porject 1___
 # 장고 mini project ToDolist 만들기
 1. ToDoList 미니프로젝트 분석
     1. 현황 분석
@@ -191,3 +191,38 @@ from my_to_do_app.models import Todo
 5. 현재까지 사항을 재발용 웹 서버로 실행 : `python manage.py runserver`
 - Todos 목록이 서버에 생김
 ## 3. URLconf 코딩
+
+#
+#
+___노트 mini porject 2___
+# 장고 mini project RestaurantShare 만들기
+### MVT 코딩 순서
+1. 프로젝트 뼈대 만들기
+2. 모델 코딩하기
+3. URLconf 코딩하기
+4. 템플릿 코딩하기
+5. View 코딩하기
+#
+
+### 데이터 식별
+- 카테고리식으로 이름 .. (한식, 중식, ...)
+- 맛집이름 `Restrurant_name`
+- 링크 `Restrurant_link`
+- 상세설명 `Restrurant_content`
+- 장소키워드 `Restrurant_keyword`
+#
+
+### 프로젝트 뼈대 만들기
+- RestaurantShare 프로젝트 만들기
+- shareRes 와 senㄸemail 두개의 앱만들기
+- 설정확인
+- 데이터 기본테이블 생성
+- 현재까지 작업 개발용 웹 서버로 확인
+#
+
+### admin 계정 생성
+#
+### 뼈대 확인
+`tree /F ResturantShare`
+#
+### model 코딩
