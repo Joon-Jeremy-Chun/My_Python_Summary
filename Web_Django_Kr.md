@@ -191,6 +191,7 @@ from my_to_do_app.models import Todo
 5. 현재까지 사항을 재발용 웹 서버로 실행 : `python manage.py runserver`
 - Todos 목록이 서버에 생김
 ## 3. URLconf 코딩
+`include 함수` 포함하기
 
 #
 #
