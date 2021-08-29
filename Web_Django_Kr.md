@@ -151,7 +151,7 @@ path('doneTodo/',views) 완료하기
 4. 템플릿 (templates/ 하위 *.html)
 5. View (views.py)
 #
-## 1. 프로젝트 뼈대 만들기
+## 1.1 프로젝트 뼈대 만들기
 1. 폴더에 ToDoList 라는 프로젝트 생성 : `django-admin startproject ToDoList`
 2. my_to_do_app 이라는 애플리케이션 _프로젝트안에 생성_ : `python manage.py startapp my_to_do_app`
 3. 설정 파일을 확인 및 수정 : `notepad setting.py`
@@ -163,38 +163,37 @@ path('doneTodo/',views) 완료하기
 
 ## 1.2 admin 등록하기 접속하기
 1. manage.py 가 있는 폴더위치에서 다음을 실행 : `python manage.py createsuperuser`
-2.순서에따라 작성후 /admin에 접속해본다.
+2. 순서에따라 작성후 /admin에 접속해본다.
+3. `db.sqlite3`에서 `django_admin_log`를 확인 할 수 있다.
 
 ## 1.3 애플리케이션을 MVT 패턴 방식으로 개발할 수 있도록 골격 생성
-1. `C:\\MyTest>tree /F ToDoList` 
+1. 구조 확인: `C:\\MyTest>tree /F ToDoList` 
 
-## 2.1  model 코딩
+## 2  model 코딩
 모델 작업은 테이터베이스에 테이블을 생성하는 작업.\
 my_to_do_app에서 model 코딩 클레스 생성 :문자길이 버튼 등등
 
 1. 테이블을 정의 한다. : `notepad models.py`
 - (장고뼈대 만들때 이미 존재) 
-- 아래 내용을 코딩
+- my_to_do_app의 `models.py`아래 내용을 코딩
     1. class `Todo()` 생성 
     2. content 는 255으로 설정 isDone 은 Boolean으로 완료 버튼사용
-2. admin에 등록
+2. `admin.py`에 등록
 - 위에 정의한 models.py 가 admin에 보이도록  admin.py에 등록
 ```py
 from my_to_do_app.models import Todo
+
+admin.site.register(Todo) #함수를 사용해서 Admin 사이트에 등록
 ```
-3. 데이터베이스에 변경이 필요한 사항을 추출함 : `python manage.py makemigrations`
+3. 데이터베이스에 변경이 필요한 사항이 있을시 : `python manage.py makemigrations`
 - ToDoList 폴더로 올라간후 실행(데이터 베이스 위치)
-- 위 명령에 의해 my_to_do_app/migrations 폴더와 하이 마이크레이션 파일들이 생김
+- 위 명령에 의해 my_to_do_app/migrations 디렉토리 하위에 `0001_initial.py`등 마이크레이션 파일들이 생김
 4. 데이터베이스에 변경사항을 반영함 : `python manage.py migrate`
 - 데이터 베이스에 테이블 생성
 - 데이터 베이스에가서 테이블 목록을 확인하면 `my_to_do_app_todo` 가 생김
 5. 현재까지 사항을 재발용 웹 서버로 실행 : `python manage.py runserver`
 - 서버가 성공적으로 작동한다는 로고가 뜬다.
 - Admin 설정후 들어가면 Todos 가 만들어져있다.
-
-## 2.2 Admin 아이디 만들기
-- 슈퍼유저 만들기: `python manage.py createsuperuser`
-- 아이디 만든후 `/admin`에 접속한다.
 
 ## 3. URLconf 코딩
 `include 함수` 포함하기
