@@ -196,9 +196,22 @@ admin.site.register(Todo) #함수를 사용해서 Admin 사이트에 등록
 - Admin 설정후 들어가면 Todos 가 만들어져있다.
 
 ## 3. URLconf 코딩
-`include 함수` 포함하기
-
+### Admin 사이트까지 포함 URL과 View가 필요
+1. ToDolist의 ToDolist 에 urls.py에 다음 코딩
+- from django.contrib import admin 과 from django.urls import path, include의 함수가 필요하다. _`include 함수` 포함시키기_
+- urlpatterns 에 `path('',include('my_to_do_app.urls')),` 추가 시키기
+2. my_to_do_app의 urls.py 파일에 다음을 생성 및 코딩
+- 함수`from django.urls import path` 와 `from . import views`를 정의한다.
+-urlpatterns에 path / index, create Todo 그리고 done Todo 작성한다.
+3. view 와 index.html을 작성한다. 
+- Templates라는 폴더명으로 그 안에 `index.html`
+- 그와 동시에 views.py 에 index()함수를 정의함다.
+4. runserver로 확인하기.
 #
+추가로 확인할것\
+db\
+데이터 저장후 `db.sqlite3`의 `my_to_do_app_todo` 안에 데이터 확인\
+`select * from my_to_do_app_todo;`\
 #
 ___노트 mini porject 2___
 # 장고 mini project RestaurantShare 만들기
@@ -232,3 +245,4 @@ ___노트 mini porject 2___
 `tree /F ResturantShare`
 #
 ### model 코딩
+#
