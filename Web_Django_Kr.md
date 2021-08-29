@@ -168,7 +168,7 @@ path('doneTodo/',views) 완료하기
 ## 1.3 애플리케이션을 MVT 패턴 방식으로 개발할 수 있도록 골격 생성
 1. `C:\\MyTest>tree /F ToDoList` 
 
-## 2.  model 코딩
+## 2.1  model 코딩
 모델 작업은 테이터베이스에 테이블을 생성하는 작업.\
 my_to_do_app에서 model 코딩 클레스 생성 :문자길이 버튼 등등
 
@@ -189,7 +189,13 @@ from my_to_do_app.models import Todo
 - 데이터 베이스에 테이블 생성
 - 데이터 베이스에가서 테이블 목록을 확인하면 `my_to_do_app_todo` 가 생김
 5. 현재까지 사항을 재발용 웹 서버로 실행 : `python manage.py runserver`
-- Todos 목록이 서버에 생김
+- 서버가 성공적으로 작동한다는 로고가 뜬다.
+- Admin 설정후 들어가면 Todos 가 만들어져있다.
+
+## 2.2 Admin 아이디 만들기
+- 슈퍼유저 만들기: `python manage.py createsuperuser`
+- 아이디 만든후 `/admin`에 접속한다.
+
 ## 3. URLconf 코딩
 `include 함수` 포함하기
 
