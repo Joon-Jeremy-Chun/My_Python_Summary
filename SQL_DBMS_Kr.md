@@ -4,15 +4,16 @@ Data Base Management System (DBMS)
 목적 
 - Data 저장
 - Data 검색
-
+- 여서사람 혹은 프로그램이 동시간 데이터 공유
 ## 데이터 배이스 형식
 1. 파일 system 
 - txt, excel
 - 중복 데이터 (저장공간 낭비 - 예를 들어 같은 고객정보,같은 날짜, 다른 주문정보들)
 
-2. RDBMS - Table 형식이다. 중복 데이터 낭비를 막기위해서
+2. DBMS
+    1. RDBMS - _`Table 형식이다.`_ 중복 데이터 낭비를 막기위해서
 
-3. NoSQL
+    2. NoSQL
 -RDBMS 연동 사용, __빅테이터__
 
 ## RDBMS 종류와 특징
@@ -51,3 +52,12 @@ Data Base Management System (DBMS)
 - 사용자 권한 부여, 혹은 제한 할때.
 - Grant, Revoke, Deny
 
+#
+## MySQL 노트
+- cmd 창에서 
+#
+## 데이터베이스 모델링과 필수 용어
+- 저장할 정보는 Table이라는 형식에 맞춰 저장
+- 행 : low, recod
+- 열 : column
+- 기본 키 : Primary Key (PK), null값이 안되며 유니크해야한다. 예)순번 
