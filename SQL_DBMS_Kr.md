@@ -57,7 +57,18 @@ Data Base Management System (DBMS)
 - cmd 창에서 
 #
 ## 데이터베이스 모델링과 필수 용어
+- 각 데이터베이스DB는 고유한 이름을 가지고 있다.
 - 저장할 정보는 Table이라는 형식에 맞춰 저장
-- 행 : low, recod
-- 열 : column
-- 기본 키 : Primary Key (PK), null값이 안되며 유니크해야한다. 예)순번 
+- 행 : low, record
+- 열 : column, field
+- 열이름은 테이블 내에서 고유해야 한다.
+- 기본 키 : Primary Key (PK), null값이 안되며 고유해야한다. 예)순번 
+- 외래 키: foreign key 예) 고객이 주문 할 때 주문 테이블.
+- 외래 키 필드 : 두 테이블의 관계를 맺어주는 키
+#
+## 데이터 활용
+- 주로 select문 사용해 데이터 활용
+- 사용할 데이터 베이스 선택
+- select 열이름 from 테이블 이름 [where 조건]
+- 새로운 테이블 생성
+- 테이블 삭제 : drop table 이름
