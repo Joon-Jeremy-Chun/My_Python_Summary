@@ -67,8 +67,64 @@ Data Base Management System (DBMS)
 - 외래 키 필드 : 두 테이블의 관계를 맺어주는 키
 #
 ## 데이터 활용
-- 주로 select문 사용해 데이터 활용
-- 사용할 데이터 베이스 선택
-- select 열이름 from 테이블 이름 [where 조건]
-- 새로운 테이블 생성
-- 테이블 삭제 : drop table 이름
+1. 주로 select문 사용해 데이터 활용
+    - 사용할 데이터 베이스 선택
+    - select 열이름 from 테이블 이름 [where 조건]
+    -  새로운 테이블 생성
+    - 테이블 삭제 : drop table 이름
+2. View : 가상 테이블 
+    - 실제 행 테이터를 가지고 있지 않음
+    -  보안면에서 안정되다.
+    -  데이터를 읽을때 효율적이다.
+3. 스포어드 프로시저(Stored Procdure) : SQL문을 하나로 묶어서 편리하게 사용하는 기능
+4.  트리거(Trigger) : 테이블에 부착되어 테이블에 insert나 update 또는 delete 작업이 발생되면 실행되는 코드
+    - 예) 테이블에 변화가 있을때 메세지를 보낸다.
+5. 백업과 복원
+    - 백업 현재의 데이터 베이스를 다른 매체에 보관하는 작업
+    - 백업과 복원은 DBA(DataBase Administrator)가 해야 할 가장 중요한 일
+
+#
+## SQL 기본
+### 1. select 문
+```sql
+select select_expr
+    from table_references
+    where where_condition
+    group by {col_name : expr : position}
+    having where_condition
+    order by {col_name : expr : position}
+```
+```sql
+select 열 이름
+from 테이블이름
+where 조건
+```
+### 2. use 문
+- 사용할 데이터베이스 지정
+```SQL
+use 테이터베이스이름;
+```
+### 3. select와 from
+- select * from 테이블; - 모두불러온다.
+- select (원하는 열) from 테이블; 원하는 열만 불러온다.
+### 4. 주석(Remark)
+- 한 줄 주석: `--`한 줄 주석
+- 여러 줄 주석 `/*` 내용 `*/`
+### 5. show 명령어
+```sql
+show databases;
+show tables;
+show table status;
+```
+### 6. describe 명령어
+-field와 타입을 알려준다.
+```
+describe 데이터베이스;
+```
+### 7. where 조건
+예)
+```sql
+select * from employees;
+select * from employees where last_name = 'Peha';
+select * from employees where last_name = 'Peha' and first_name = 'Aamer' ;
+```
