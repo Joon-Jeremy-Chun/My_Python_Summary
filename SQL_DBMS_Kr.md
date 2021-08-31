@@ -84,12 +84,12 @@ Data Base Management System (DBMS)
     - select 열이름 from 테이블 이름 [where 조건]
     -  새로운 테이블 생성
     - 테이블 삭제 : drop table 이름
-2. View : 가상 테이블 
+2. `View` : 가상 테이블 
     - 실제 행 테이터를 가지고 있지 않음
     -  보안면에서 안정되다.
     -  데이터를 읽을때 효율적이다.
-3. 스포어드 프로시저(Stored Procdure) : SQL문을 하나로 묶어서 편리하게 사용하는 기능
-4.  트리거(Trigger) : 테이블에 부착되어 테이블에 insert나 update 또는 delete 작업이 발생되면 실행되는 코드
+3. `스포어드 프로시저(Stored Procdure)` : SQL문을 하나로 묶어서 편리하게 사용하는 기능
+4.  `트리거(Trigger)` : 테이블에 부착되어 테이블에 insert나 update 또는 delete 작업이 발생되면 실행되는 코드
     - 예) 테이블에 변화가 있을때 메세지를 보낸다.
 5. 백업과 복원
     - 백업 현재의 데이터 베이스를 다른 매체에 보관하는 작업
