@@ -83,3 +83,5 @@ for channel_singleD in channel_list :
 ```
 category = channel_check.select('a.category')[0].text.strip() 
 print (category[0:])
+```
+### 3.
